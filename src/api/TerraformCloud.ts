@@ -7,6 +7,7 @@ import Runs from './endpoints/Runs'
 import Workspaces from './endpoints/Workspaces'
 import ConfigurationVersion from './endpoints/ConfigurationVersion'
 import StateVersions from './endpoints/StateVersions'
+import RegistryModules from './endpoints/RegistryModules'
 
 export class TerraformCloud extends EventEmitter {
   public Account: Account
@@ -16,6 +17,7 @@ export class TerraformCloud extends EventEmitter {
   public Workspaces: Workspaces
   public ConfigurationVersion: ConfigurationVersion
   public StateVersions: StateVersions
+  public RegistryModules: RegistryModules
 
   constructor(apiKey: string) {
     super()
@@ -27,5 +29,6 @@ export class TerraformCloud extends EventEmitter {
     this.Workspaces = new Workspaces(client)
     this.ConfigurationVersion = new ConfigurationVersion(client)
     this.StateVersions = new StateVersions(client)
+    this.RegistryModules = new RegistryModules(client)
   }
 }
