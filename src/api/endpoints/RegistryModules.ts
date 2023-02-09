@@ -11,4 +11,15 @@ export default class RegistryModules extends Request {
     const path = `/organizations/${organizationName}/registry-modules?page[${number}]&page[${size}]`
     return await this.get<RegistryModule[]>(path)
   }
+
+  async show(
+    organizationName: string,
+    registryName: string,
+    namespace: string,
+    name: string,
+    provider: string
+  ): Promise<RegistryModule> {
+    const path = `/organizations/${organizationName}/registry-modules/${registryName}/${namespace}/${name}/${provider}`
+    return await this.get<RegistryModule>(path)
+  }
 }
